@@ -4,7 +4,7 @@ This small repository makes the compilation and usage of the software SPoCA (htt
 # Usage
 The container image is build with docker. For that, install docker on your system and execute the script 
 ```bash
-build_docker.sh
+./build_docker.sh
 ```
 This will clone the SPoCA repository and initiatlize the build process. The build process uses the docker base image `ubuntu:20.04`.
 
