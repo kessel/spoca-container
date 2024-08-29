@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --tag spoca_new --progress=plain .
+docker build --tag spoca --progress=plain .
