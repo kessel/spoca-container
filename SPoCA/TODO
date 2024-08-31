@@ -1,0 +1,10 @@
+/*!
+@page TODO To Do
+List of improvements and bug corrections, in no particular order
+
+  - Check if we need crval keywords to be set in wcs
+ - Improve ALC by using splines (for CIS)
+ - Cumulative classification make a thread to read the fitsfiles while it is adding the images and doing classification
+ - Implement an image iterator, enumerator (iterator + indice), and enumerator2D (iterator + Coordinate)
+  - Implement the SpacialClassifier with just the neighboor list, let Xsmoothed in SPoCA, then make SPoCA and others inherit it.
+  */

@@ -1,0 +1,56 @@
+/*!
+
+@mainpage SPoCA
+
+@version 3.0
+
+@authors
+Benjamin Mampaey benjamin.mampaey@oma.be
+Cis Verbeeck cis.verbeeck@oma.be
+Véronique Delouille veronique.delouille@oma.be
+
+\section intro_sec Introduction
+
+SPoCA stands for Spatial Possibilistic Classification Algorithm.
+
+It's a multi-channel unsupervised spatially-constrained fuzzy clustering algorithm.
+
+It's purpose is to segment Extreme Ultra Violet (EUV) images of the sun into 3 categories: Quiet Sun (QS), Active Region (AR) and Coronal Hole (CH)
+
+\section history_sec History
+
+The software was first developed by Vincent Barra in 2007.
+
+It has been completely rewritten by Benjamin Mampaey starting in 2009, and has been in development since.
+
+It received several improvements, with the help of Cis Verbeeck and Véronique Delouille.
+
+\section references_sec References
+
+- [1] Barra, V., Delouille, V., Hochedez, J.-F., & Chainais, P. : 2005 `Segmentation of EIT Images Using Fuzzy Clustering: a Preliminary Study', ESA Special Publication, 600, 77.1.
+- [2] Barra V., Delouille V., Hochedez J.-F. : 2008 `Segmentation of extreme ultraviolet solar images via multichannel fuzzy clustering', Advances in Space Research, 42, 917--925.
+- [3] Barra V., Delouille V., Kretzschmar M., Hochedez J.-F. : 2009 `Fast and robust segmentation of solar EUV images: algorithm and results for solar cycle 23', A&A, 505(1), 2009, 361--371
+- [4] V. Barra, V. Delouille, and J.-F. Hochedez : 2009 `Segmentation, Tracking and Characterization of Solar Features from EIT Solar Corona Images', Lecture Notes in Computer Science, Volume 5575/2009, 199--208,
+- [5] Verbeeck, C., Delouille, V., Mampaey, B., De Visscher, R. : 2014 `The SPoCA-suite: Software for extraction, characterization, and tracking of active regions and coronal holes on EUV images', Astronomy and Astrophysics 561.
+
+
+*/
+
+The following is only for Automatic documentation generation.
+/*!
+@page programs Programs
+List of programs and utilities included in SPoCA.
+<BR>@subpage classification
+<BR>@subpage attribution
+<BR>@subpage get_AR_map
+<BR>@subpage get_CH_map
+<BR>@subpage tracking
+<BR>@subpage get_regions_stats
+<BR>@subpage get_segmentation_stats
+<BR>@subpage get_STAFF_stats
+<BR>@subpage get_SOLID_stats
+<BR>@subpage fits2png
+<BR>@subpage map2png
+<BR>@subpage overlay
+
+*/

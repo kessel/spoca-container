@@ -1,0 +1,65 @@
+/*!
+@page general General
+General considerations of the implementation of SPoCA.
+<BR>@subpage preprocessing
+<BR>@subpage ALC
+
+SPoCA is implemented as a series of steps:
+
+The first step is to compute a segmentation map.
+<BR>This can be done with the program @ref classification or @ref attribution.
+<BR>These programs do the following:
+ - @ref preprocessing of the EUV images
+ - Classification of the pixels of the images using a Classifier
+ - Optionally , adjustment of the centres found by the classification, followed by an attribution to apply that adjustment.
+ - Segmentation of the pixels of the image into classes.
+
+The second step is to compute a map of regions using the segmentation map obtained at the previous step.
+<BR>This can be done with the program @ref get_AR_map or @ref get_CH_map.
+<BR>These programs do the following:
+ - Extraction of the Active Regions (AR) or Coronal Holes (CH) from the segmented map
+ - Computation of various statistics on the extracted regions.
+
+The third step is to track the regions using several regions map obtained at the previous step.
+<BR>This can be done with the program @ref tracking
+<BR>This program does the following:
+ - Sort the regions maps chronologically
+ - Compare the maps to find overlapping regions (using eventually differential solar rotation)
+ - Generate a graph of the regions adding edges when 2 regions overlap
+ - Simplify the graph to detect what regions belong to the same event (an AR or a CH)
+ - Recolor eventually the regions in the maps so that the same event has the same color
+
+SPoCA also offers some utilities to help visualising the results such as @ref fits2png, @ref map2png and @ref overlay
+
+There is also a few programs to compute additional statistics from the maps such as @ref get_regions_stats and @ref get_segmentation_stats
+
+You can always get help for a program or a script by calling it with the -h option
+
+@page preprocessing Preprocessing
+The preprocessing of the sun images is a series of transformation of the image that are executed one after the other, in the order they are given.
+The currently defined transformation are:
+@param NAR=zz.z Nullify Above Radius. Put null values in the pixels above the radius * zz.z.
+@param ALC Apply Annulus Limb Correction. See @ref ALC
+@param DivMedian Division of the intensities by the median intensity
+@param TakeSqrt Take the square root
+@param TakeLog Take the log
+@param DivMode Division of the intensities by the mode
+@param DivExpTime Division by the Exposure Time
+@param ThrMinPer=zz.z Threshold intensities to minimum the zz.z percentile
+@param ThrMaxPer=zz.z Threshold intensities to maximum the zz.z percentile
+@param ThrMin=zz.z Threshold intensities to minimum zz.z
+@param ThrMax=zz.z Threshold intensities to maximum zz.z
+@param Smooth=zz.z Binomial smoothing of zz.z arcsec
+
+@page ALC Annulus Limb Correction
+The Annulus Limb Correction is a method to correct the limb brightness on EUV Sun Images. It has been described in
+
+It has received several improvements by Cis Verbeeck and Benjamin Mampaey.
+
+The currently implemented solution is to modulate the effect of the ALC with a function going from 0 to 1 along an ascending sine, staying at 1, and then finally decreasing to 0 along a descending sine.
+
+This functions has 4 parameters, the first value where it starts increasing from 0, the second value where it reaches it's maximal of 1, the third value when it starts decreasing again and finally the fourth value where it reaches 0 again.
+
+These 4 parameters are givens as percentages of the radius of the sun. For example 80,100,110,120 means that annulus limb correction will start at 80% of the sun radius. Increase along a sine until it's maximum at 100% of the sun radius (== the sun radius), starts decreasing along a sine from 110% of the sun radius, and will stop at 120% of the radius.
+
+*/
