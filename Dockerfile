@@ -9,4 +9,4 @@ run mkdir /code
 COPY ./SPoCA /code/SPoCA
 ENV PATH=$PATH:/usr/lib/x86_64-linux-gnu/ImageMagick-6.9.10/bin-q16/
 RUN cd /code/SPoCA && ./makemake.sh > Makefile && make -j 8
-ENV LD_LIBRARY_PATH=LD_LIBRARY_PATH:/code/SPoCA/lib
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/SPoCA/lib
